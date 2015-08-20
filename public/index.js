@@ -20,12 +20,12 @@ function drawTopNodes(dom){
   });
 }
 //later send parent rather than x2,y2
-function joinToParent(x1,y1, x2,y2, c){
-  return s.line(x1,y1, x2,y2).attr({stroke:c,strokeWidth:5});
+function joinToParent(x1,y1, x2,y2, c, sw){
+  return s.line(x1,y1, x2,y2).attr({stroke:c,strokeWidth:sw});
 }
 
 function drawNode(w, y, i, node){
-  return drawCircleAndLine(w*i, y, 20,'red');
+  return drawCircleAndLine(w*i, y, w/4,'red');
 }
 
 function drawCircle(x, y, r, c){
@@ -35,7 +35,7 @@ function drawCircle(x, y, r, c){
 function drawCircleAndLine(x, y, r,c){
   return {
     'circle': drawCircle(x, y, r, c),
-    'line' : joinToParent(x+r,y, width/2, 50, 'gold')
+    'line' : joinToParent(x+r,y, width/2, 50, 'gold',r/6)
   };
 }
 
