@@ -25,7 +25,7 @@ function joinToParent(x1,y1, x2,y2, c, sw){
 }
 
 function getNodeName(node){
-  var html = node.outerHTML.split('>')[0].split(' ')[0];
+  var html = (node.outerHTML || new XMLSerializer().serializeToString(node)).split('>')[0].split(' ')[0];
   return html.substr(1,html.length);
 }
 
